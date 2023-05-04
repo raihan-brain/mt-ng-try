@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { WelcomeComponentComponent } from './welcome-component/welcome-component.component';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
 import { ProductsModule } from './products/products.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { ProductsModule } from './products/products.module';
     WelcomeComponentComponent,
     PageNotFoundComponentComponent,
   ],
-  imports: [BrowserModule, ProductsModule, AppRoutingModule],
+  imports: [BrowserModule, ProductsModule, UserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
