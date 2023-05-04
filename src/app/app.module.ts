@@ -5,18 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponentComponent } from './welcome-component/welcome-component.component';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponentComponent,
-    PageNotFoundComponentComponent
+    PageNotFoundComponentComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, ProductsModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
