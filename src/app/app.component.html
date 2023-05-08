@@ -10,4 +10,14 @@
   </li>
 </ul>
 
+<ul>
+  <li>
+    <a [routerLink]="[{ outlets: { popup: ['messages'] } }]">Secondary</a>
+  </li>
+</ul>
+
 <router-outlet></router-outlet>
+
+<h1>Secondary routing</h1>
+
+<router-outlet name="popup"></router-outlet>
