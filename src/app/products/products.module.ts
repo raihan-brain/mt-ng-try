@@ -5,12 +5,16 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { RouterModule } from '@angular/router';
 import { heroResolver } from './product-api.service';
+import { ProductEditInfoComponent } from './product-edit-info/product-edit-info.component';
+import { ProductEditTagsComponent } from './product-edit-tags/product-edit-tags.component';
 
 @NgModule({
   declarations: [
     ProductListComponent,
     ProductDetailComponent,
     ProductEditComponent,
+    ProductEditInfoComponent,
+    ProductEditTagsComponent,
   ],
   imports: [
     CommonModule,
@@ -22,9 +26,27 @@ import { heroResolver } from './product-api.service';
       {
         path: 'products/:id',
         component: ProductDetailComponent,
-        resolve: { hero: heroResolver },
       },
-      { path: 'products/:id/edit', component: ProductEditComponent },
+      {
+        path: 'products/:id/edit',
+        component: ProductEditComponent,
+        resolve: { hero: heroResolver },
+        children: [
+          {
+            path: '',
+            redirectTo: 'info',
+            pathMatch: 'full',
+          },
+          {
+            path: 'info',
+            component: ProductEditInfoComponent,
+          },
+          {
+            path: 'tags',
+            component: ProductEditTagsComponent,
+          },
+        ],
+      },
     ]),
   ],
 })
