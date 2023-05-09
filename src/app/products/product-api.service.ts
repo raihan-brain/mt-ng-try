@@ -5,7 +5,7 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 
-interface Hero {
+export interface Hero {
   id: string;
   name: string;
   superPower: string;

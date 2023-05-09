@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Hero } from '../product-api.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -7,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./product-detail.component.scss'],
 })
 export class ProductDetailComponent implements OnInit {
+  heroObj: Hero | undefined;
   constructor(private router: ActivatedRoute) {
     const id = this.router.snapshot.paramMap.get('id');
     console.log('===== product details id --- ', id);
@@ -16,6 +18,7 @@ export class ProductDetailComponent implements OnInit {
     this.router.data.subscribe(({ hero }) => {
       console.log('==== hero object ');
       console.log(hero);
+      this.heroObj = hero;
     });
   }
 }

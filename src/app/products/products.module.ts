@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { heroResolver } from './product-api.service';
 import { ProductEditInfoComponent } from './product-edit-info/product-edit-info.component';
 import { ProductEditTagsComponent } from './product-edit-tags/product-edit-tags.component';
+import { productGuard } from './product.guard';
 
 @NgModule({
   declarations: [
@@ -29,11 +30,12 @@ import { ProductEditTagsComponent } from './product-edit-tags/product-edit-tags.
           {
             path: ':id',
             component: ProductDetailComponent,
+            resolve: { hero: heroResolver },
+            canActivate: [productGuard],
           },
           {
             path: ':id/edit',
             component: ProductEditComponent,
-            resolve: { hero: heroResolver },
             children: [
               {
                 path: '',
