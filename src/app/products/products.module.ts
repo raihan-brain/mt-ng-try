@@ -21,36 +21,31 @@ import { productGuard } from './product.guard';
     CommonModule,
     RouterModule.forChild([
       {
-        path: 'products',
+        path: '',
+        component: ProductListComponent,
+      },
+      {
+        path: ':id',
+        component: ProductDetailComponent,
+        resolve: { hero: heroResolver },
+        canActivate: [productGuard],
+      },
+      {
+        path: ':id/edit',
+        component: ProductEditComponent,
         children: [
           {
             path: '',
-            component: ProductListComponent,
+            redirectTo: 'info',
+            pathMatch: 'full',
           },
           {
-            path: ':id',
-            component: ProductDetailComponent,
-            resolve: { hero: heroResolver },
-            canActivate: [productGuard],
+            path: 'info',
+            component: ProductEditInfoComponent,
           },
           {
-            path: ':id/edit',
-            component: ProductEditComponent,
-            children: [
-              {
-                path: '',
-                redirectTo: 'info',
-                pathMatch: 'full',
-              },
-              {
-                path: 'info',
-                component: ProductEditInfoComponent,
-              },
-              {
-                path: 'tags',
-                component: ProductEditTagsComponent,
-              },
-            ],
+            path: 'tags',
+            component: ProductEditTagsComponent,
           },
         ],
       },

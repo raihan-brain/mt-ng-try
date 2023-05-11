@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponentComponent } from './welcome-component/welcome-component.component';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
-import { ProductsModule } from './products/products.module';
 import { UserModule } from './user/user.module';
 import { MessageModule } from './message/message.module';
 
@@ -15,13 +14,7 @@ import { MessageModule } from './message/message.module';
     WelcomeComponentComponent,
     PageNotFoundComponentComponent,
   ],
-  imports: [
-    BrowserModule,
-    ProductsModule,
-    UserModule,
-    MessageModule,
-    AppRoutingModule,
-  ],
+  imports: [BrowserModule, UserModule, MessageModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
